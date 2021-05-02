@@ -1,0 +1,71 @@
+[System]
+Name='Regulator5'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=25
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Greska'
+Range=[-1 1]
+NumMFs=5
+MF1='N':'trapmf',[-10 -1 -0.65 -0.5]
+MF2='SN':'trimf',[-0.75 -0.5 0]
+MF3='P':'trapmf',[0.5 0.65 1.07 100]
+MF4='SP':'trimf',[0 0.5 0.75]
+MF5='O':'trimf',[-0.25 0 0.25]
+
+[Input2]
+Name='IzvodGreske'
+Range=[-1 1]
+NumMFs=5
+MF1='N':'trapmf',[-100 -1 -0.65 -0.5]
+MF2='SN':'trimf',[-0.75 -0.5 0]
+MF3='P':'trapmf',[0.5 0.65 1.07 100]
+MF4='O':'trimf',[-0.25 0 0.25]
+MF5='SP':'trimf',[0 0.5 0.75]
+
+[Output1]
+Name='Ugao'
+Range=[-1.5707 1.5707]
+NumMFs=7
+MF1='VN':'trapmf',[-6.284 -1.57 -1.309 -1.047]
+MF2='O':'trimf',[-0.261 0 0.261]
+MF3='VP':'trapmf',[1.047 1.309 1.57 6.284]
+MF4='N':'trimf',[-1.309 -1.047 -0.7849]
+MF5='MN':'trimf',[-0.7849 -0.5229 -0.261]
+MF6='MP':'trimf',[0.261 0.5229 0.7849]
+MF7='P':'trimf',[0.7849 1.047 1.308]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 4 (1) : 1
+1 4, 5 (1) : 1
+1 5, 5 (1) : 1
+1 3, 2 (1) : 1
+2 3, 6 (1) : 1
+2 5, 2 (1) : 1
+2 4, 5 (1) : 1
+2 2, 4 (1) : 1
+2 1, 4 (1) : 1
+5 3, 6 (1) : 1
+5 5, 6 (1) : 1
+5 4, 2 (1) : 1
+5 2, 5 (1) : 1
+5 1, 5 (1) : 1
+4 3, 7 (1) : 1
+4 5, 7 (1) : 1
+4 4, 6 (1) : 1
+4 2, 2 (1) : 1
+4 1, 5 (1) : 1
+3 3, 3 (1) : 1
+3 5, 7 (1) : 1
+3 4, 6 (1) : 1
+3 2, 6 (1) : 1
+3 1, 2 (1) : 1
